@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input form</title>
+    <link rel="stylesheet" href="../InputForm/InputForm.css">
+</head>
+<body>
+    <form>
+        <header class="headerContainer"><h1>HTML 5 Form Input Fields</h1></header>
+        <div>
+            <label for="Name">Name:</label>
+            <input type="text" id="Name" name="text">
+            <error-input class="error"></error-input>
+        </div>
+
+        <div>
+            <label for="pwd">Password:</label>
+            <input type="password" id="pwd" name="pwd">
+            <password-input class="Password"></password-input>
+
+        </div>
+
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+            <email-input class="Email"></email-input>
+
+        </div>
+
+        <div>
+            <label for="url">Url:</label>
+            <input type="url" id="url" name="url">
+        </div>
+
+        <div>
+            <label for="number">Number:</label>
+            <input type="number" id="number" name="number">
+
+        </div>
+
+        <div>
+            <label for="tel">Telephone:</label>
+            <input type="tel" id="tel" name="tel">
+            <number-input class="Number"></number-input>
+
+        </div>
+
+        <div>
+            <label for="search">Search:</label>
+            <input type="search" id="search" name="search">
+        </div>
+
+        <div class="nativeDateTimePicker">
+            <label for="party">Date and Time:</label>
+            <input type="datetime-local" id="party" name="bday">
+            <span class="validity"></span>
+        </div>
+
+        <div>
+            <label for="salary">Salary:</label>
+            <input type="range" id="salary" name="salary" min="30000" max="60000" step="100" value="40000">
+            <salary-output class="salary-output" for="salary">50000</salary-output>
+        </div>
+
+        <div>
+            <button>Submit</button>
+        </div>
+    </form>
+    <script>
+        // UC1
+        const text = document.querySelector('#Name');
+        const error = document.querySelector('.error');
+        text.addEventListener('input',function()
+        {
+            let nameRegex=RegExp('^[A-Z]{1}[a-z]{2,}$');
+            if(nameRegex.test(text.value))
+            {
+                error.textContent="";
+            }
+            else
+            error.textContent="Name is Invalid";
+        });
+
+       
+    </script>
+    
+</body>
+</html>
